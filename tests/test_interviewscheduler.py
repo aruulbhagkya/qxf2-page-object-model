@@ -66,48 +66,51 @@ def test_interview_scheduler_page(test_obj):
         #6.click the next button 
         next_button=test_obj.click_nxt_button()
 
-        #click jobs 
-        
+        #7.click jobs 
         jobs_button=test_obj.click_jobs_button()
         time.sleep(2)
+        
+        #8.set search input box
         search_text = test_obj.set_search_button(search)
         test_obj.log_result(search_text,
                             positive="passed\n" ,
                             negative="Failed\n")
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time))) 
 
-        # button=test_obj.get_delete_button()
-        # button=test_obj.get_remove_button()
-        # button=test_obj.get_close_button()
-        
-        #7.click hamburger menu,jobs,add button 
-        # button= test_obj.get_hamburger_menu()
+        #9.click delete button
         delete_button= test_obj.click_delete_button()
+       
+        #10.click remove button
         remove_button= test_obj.click_remove_button()
+       
+        #11.click close button
         close_button=test_obj.click_close_button()
-        #button=test_obj.get_jobs()
+       
+        #12.click add button
         add_button=test_obj.click_add_button()
 
-        #8.set the job role
+        #13.set the job role
         job_role_text = test_obj.set_job_role(jobrole)
         test_obj.log_result(job_role_text,
                             positive="Passed\n" ,
                             negative="Failed\n")
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))
 
-        #9. set the interviewers
+        #14. set the interviewers
         interviewers_text = test_obj.set_interviewers(interviewers)
         test_obj.log_result(interviewers_text,
                             positive="Passed\n" ,
                             negative="Failed\n")
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))
 
-        #10. click the submit button
+        #15. click the submit button
         submit_button= test_obj.click_submit_button()
-        # test_obj.switch_page(OK).accept()
+       
+        #16.Accept ok button
         ok_button=test_obj.ok_button()
         ok_button.accept()        
-        #11. Print out the result
+       
+        #17. Print out the result
         test_obj.write_test_summary()
         expected_pass = test_obj.result_counter
         actual_pass = test_obj.pass_counter
