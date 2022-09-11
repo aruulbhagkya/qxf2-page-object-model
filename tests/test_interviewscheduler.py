@@ -1,9 +1,9 @@
 """
 This is an example automated test to help you learn Qxf2's framework
 Our automated test will do the following:
-    #Open Qxf2 selenium-tutorial-main page.
-    #Fill the example form.
-    #Click on Click me! button and check if its working fine.
+    #Open Qxf2 interview scheduler application
+    #Fill the details of jobs section.
+
 """
 import os,sys,time
 from re import search
@@ -28,6 +28,10 @@ def test_interview_scheduler_page(test_obj):
         test_obj = PageFactory.get_page_object("interviewscheduler main page")
         #Set start_time with current time
         start_time = int(time.time())
+
+        # Turn on the highlighting feature
+        test_obj.turn_on_highlight()
+        
         #1.Get the test details from the conf file
         email = conf.email
         password=conf.password
@@ -36,8 +40,8 @@ def test_interview_scheduler_page(test_obj):
         search = conf.search
         
         #2.get the login button
-        button= test_obj.get_try_again()
-        button=test_obj.get_sign_in()
+        try_again_button= test_obj.click_try_again()
+        sign_in_button=test_obj.click_sign_in()
         
         time.sleep(3)
         
@@ -49,7 +53,7 @@ def test_interview_scheduler_page(test_obj):
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))
         
         #4. click the next button
-        button=test_obj.get_nxt_button()
+        button=test_obj.click_nxt_button()
         time.sleep(3)
 
         #5.set the password
@@ -60,11 +64,11 @@ def test_interview_scheduler_page(test_obj):
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))
 
         #6.click the next button 
-        button=test_obj.get_nxt_button()
+        next_button=test_obj.click_nxt_button()
 
-        #click delete button
+        #click jobs 
         
-        button=test_obj.get_jobs()
+        jobs_button=test_obj.click_jobs_button()
         time.sleep(2)
         search_text = test_obj.set_search_button(search)
         test_obj.log_result(search_text,
@@ -78,11 +82,11 @@ def test_interview_scheduler_page(test_obj):
         
         #7.click hamburger menu,jobs,add button 
         # button= test_obj.get_hamburger_menu()
-        button= test_obj.get_delete_button()
-        button= test_obj.get_remove_button()
-        button=test_obj.get_close_button()
+        delete_button= test_obj.click_delete_button()
+        remove_button= test_obj.click_remove_button()
+        close_button=test_obj.click_close_button()
         #button=test_obj.get_jobs()
-        button=test_obj.get_add_button()
+        add_button=test_obj.click_add_button()
 
         #8.set the job role
         job_role_text = test_obj.set_job_role(jobrole)
@@ -99,9 +103,10 @@ def test_interview_scheduler_page(test_obj):
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))
 
         #10. click the submit button
-        button= test_obj.get_submit_button()
-        test_obj.switch_page(OK).accept()
-        
+        submit_button= test_obj.click_submit_button()
+        # test_obj.switch_page(OK).accept()
+        ok_button=test_obj.ok_button()
+        ok_button.accept()        
         #11. Print out the result
         test_obj.write_test_summary()
         expected_pass = test_obj.result_counter
