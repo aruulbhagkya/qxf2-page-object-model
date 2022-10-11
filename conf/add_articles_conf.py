@@ -1,5 +1,3 @@
-email  = "aruul.bhagkya@qxf2.com"
-password = "AganSarwin@2021"
 url_1="https://www.python.org/downloads/"
 title_1="postman api tool"
 description_1="tool which is used to get,post,put and delete request"
