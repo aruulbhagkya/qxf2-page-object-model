@@ -1,6 +1,3 @@
-# get the hamburger locator
-# hamburger="xpath,//*[local-name()='svg']"
-hamburger="xpath,//*[local-name()='svg' and @data-icon='bars']/*[local-name()='path']"
 # get the search locator
 home="xpath,//a[text()='Home']"
 # get the add articles locator
@@ -17,3 +14,5 @@ time="xpath,//input[@name='time']"
 category="xpath,//select[@name='category_id']"
 # get the add_article locator
 submit="xpath,//input[@name='submit']"
+# get the add another articles locator
+add_another_articles="xpath,//a[normalize-space()='Add another article']"

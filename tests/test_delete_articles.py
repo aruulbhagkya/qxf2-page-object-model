@@ -12,9 +12,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from page_objects.PageFactory import PageFactory
 from utils.Option_Parser import Option_Parser
 from tkinter.messagebox import OK
-
 import conf.mail_conf as conf
-import conf.delete_conf as conf
+import conf.delete_articles_conf as conf
 import pytest
 
 
@@ -51,7 +50,7 @@ def test_newsletter_page(test_obj):
                             positive="Email was successfully set to: %s\n"%email,
                             negative="Failed to set Email: %s \nOn url: %s\n"%(email,test_obj.get_current_url()))
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))
-        
+        time.sleep(3)
         #click the next button
         nxt_button=test_obj.click_nxt_button()
         time.sleep(3)
@@ -79,11 +78,17 @@ def test_newsletter_page(test_obj):
                             negative="Failed\n")
         test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))    
 
-        # click the edit_articles button
+        # click the delete_articles button
         deletearticles_button=test_obj.click_delete_button()
         time.sleep(3)
-        test_obj.ok_button(OK).accept() 
-
+        test_obj.accept_alert()
+        
+        # # click ok button
+        # # test_obj.switch_page(OK).accept() 
+        # OK_button=test_obj.ok_button(OK)
+        # OK_button.accept()
+        # print("Ok")
+        
         # Print out the result
         test_obj.write_test_summary()
         expected_pass = test_obj.result_counter

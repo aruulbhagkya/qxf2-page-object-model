@@ -1,5 +1,3 @@
-# hamburger="xpath,//*[local-name()='svg']"
-hamburger="xpath,//*[local-name()='svg' and @data-icon='bars']/*[local-name()='path']"
 # get the manage articles locator
 manage_article="xpath,//a[normalize-space()='Manage Articles']"
 # get the search locator
@@ -20,3 +18,5 @@ edit_category="xpath,//select[@id='category_id']"
 edit_save="xpath,//input[@id='submit']"
 # get the edit_cancel locator
 edit_cancel="xpath,//a[text()='Cancel']"
+# get the delete locator
+delete="xpath,//a[@class='btn btn-sm btn-danger']"

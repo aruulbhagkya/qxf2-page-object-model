@@ -10,7 +10,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from page_objects.PageFactory import PageFactory
 from utils.Option_Parser import Option_Parser
 import conf.mail_conf as conf
-import conf.edit_conf as conf
+import conf.edit_articles_conf as conf
 import pytest
 
 
@@ -37,6 +37,7 @@ def test_newsletter_page(test_obj):
         run=conf.runtime
         category=conf.category
         search=conf.search
+        search_1=conf.search_1
         
         #get the try again button
         try_button= test_obj.click_try_again()
@@ -120,6 +121,19 @@ def test_newsletter_page(test_obj):
 
         # click save button  
         save_button=test_obj.click_save_button()
+
+    # set the search_text button
+        search_text = test_obj.set_search_button(search_1)
+        test_obj.log_result(search_text,
+                            positive="passed\n" ,
+                            negative="Failed\n")
+        test_obj.write('Script duration: %d seconds\n'%(int(time.time()-start_time)))    
+
+        # click the delete_articles button
+        deletearticles_button=test_obj.click_delete_button()
+        time.sleep(3)
+        test_obj.accept_alert()
+
         
         # Print out the result
         test_obj.write_test_summary()

@@ -1,9 +1,6 @@
 from re import search
 import conf.edit_articles_locator_conf as locators
 class Editarticles_Object_Page:
-    
-    # get the hamburger locator
-    hamburger=locators.hamburger
     # get the manage articles locator
     manage_article=locators.manage_article
     # get the search locator
@@ -24,11 +21,9 @@ class Editarticles_Object_Page:
     edit_save=locators.edit_save
     # get the edit_cancel locator
     edit_cancel=locators.edit_cancel
-
-    def click_hamburger_button(self):
-     hamburger_button=self.hover(self.hamburger)
-     return hamburger_button    
-
+    # get the delete locator
+    delete =locators.delete
+    
     def click_managearticle_button(self):
      manage_button=self.click_element(self.manage_article)
      return manage_button
@@ -85,6 +80,17 @@ class Editarticles_Object_Page:
     def click_save_button(self):
      submit_button=self.click_element(self.edit_save)
      return submit_button
+
+    def set_search_button(self,search_1):
+        result_flag = self.set_text(self.search,search_1)
+        self.conditional_write(result_flag,
+            positive='Set the url to: %s'%search_1,
+            negative='Failed to set the url in the form',
+            level='debug')
+
+    def click_delete_button(self):
+     add_button=self.click_element(self.delete)
+     return add_button  
 
     def click_cancel_button(self):
      add_button=self.click_element(self.edit_cancel)

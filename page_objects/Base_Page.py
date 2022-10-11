@@ -3,6 +3,8 @@ Page class that all page models can inherit from
 There are useful wrappers for common Selenium operations
 """
 from selenium.webdriver.common.keys import Keys
+from selenium import webdriver
+from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
@@ -77,6 +79,12 @@ class Base_Page(Borg,unittest.TestCase):
         self.gif_file_name = None
         self.rp_logger = None
 
+
+    def accept_alert(self):
+        return self.driver.switch_to.alert.accept() 
+
+    def dismiss_alert(self):
+        return self.driver.switch_to.alert.dismiss()    
 
     def turn_on_highlight(self):
         "Highlight the elements being operated upon"

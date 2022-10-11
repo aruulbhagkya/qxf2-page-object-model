@@ -10,9 +10,8 @@ Pages implemented so far:
  
 
 from page_objects.zero_page import Zero_Page
-from page_objects.newsletter_main_page import Newsletter_Mainpage
-from page_objects.editarticles_main_page import Editarticles_Mainpage
-from page_objects.deletearticles_main_page import Deletearticles_Mainpage
+from page_objects.add_articles_main_page import Addarticles_Mainpage
+from page_objects.edit_articles_main_page import Editarticles_Mainpage
 import conf.base_url_conf
 
 
@@ -24,12 +23,10 @@ class PageFactory():
         page_name = page_name.lower()
         if page_name in ["zero","zero page","agent zero"]:
             test_obj = Zero_Page(base_url=base_url)
-        elif page_name == "newsletter main page":
-            test_obj = Newsletter_Mainpage(base_url=base_url)  
+        elif page_name == "addarticles main page":
+            test_obj =  Addarticles_Mainpage(base_url=base_url)  
         elif page_name == "editarticles main page":
             test_obj = Editarticles_Mainpage(base_url=base_url)  
-        elif page_name == "deletearticles main page":
-            test_obj = Deletearticles_Mainpage(base_url=base_url)             
         return test_obj
 
     get_page_object = staticmethod(get_page_object)
