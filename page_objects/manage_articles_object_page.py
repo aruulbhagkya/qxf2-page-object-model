@@ -1,6 +1,6 @@
 from re import search
-import conf.edit_articles_locator_conf as locators
-class Editarticles_Object_Page:
+import conf.manage_articles_locator_conf as locators
+class Managearticles_Object_Page:
     # get the manage articles locator
     manage_article=locators.manage_article
     # get the search locator

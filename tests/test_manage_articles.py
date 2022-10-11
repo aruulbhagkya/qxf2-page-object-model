@@ -10,7 +10,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from page_objects.PageFactory import PageFactory
 from utils.Option_Parser import Option_Parser
 import conf.mail_conf as conf
-import conf.edit_articles_conf as conf
+import conf.manage_articles_conf as conf
 import pytest
 
 
@@ -23,7 +23,7 @@ def test_newsletter_page(test_obj):
         expected_pass = 0
         actual_pass = -1
         # Create a test object for moisturizer button
-        test_obj = PageFactory.get_page_object("editarticles main page")
+        test_obj = PageFactory.get_page_object("managearticles main page")
         #Set start_time with current time
         start_time = int(time.time())
         test_obj.turn_on_highlight()

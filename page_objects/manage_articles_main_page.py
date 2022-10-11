@@ -4,10 +4,10 @@ This class models the interviewscheduler_mainpage page.
 """
 from .Base_Page import Base_Page
 from .mail_object_page import Mail_Object_Page
-from .edit_articles_object_page import Editarticles_Object_Page
+from .manage_articles_object_page import Managearticles_Object_Page
 from .hamburger_object_page import Hamburger_Object_Page
 
-class Editarticles_Mainpage(Base_Page, Mail_Object_Page, Hamburger_Object_Page, Editarticles_Object_Page):
+class Managearticles_Mainpage(Base_Page, Mail_Object_Page, Hamburger_Object_Page, Managearticles_Object_Page):
     "Page Object for the weather shopper main page"
 
     def start(self):
