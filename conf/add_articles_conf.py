@@ -1,7 +1,0 @@
-email  = "aruul.bhagkya@qxf2.com"
-password = "AganSarwin@2021"
-url="https://www.postman.com/product/tools/"
-title="postman api tool"
-description="tool which is used to get,post,put and delete request"
-runtime="10"
-category="pastweek"
